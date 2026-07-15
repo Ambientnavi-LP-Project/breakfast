@@ -1,0 +1,14 @@
+{
+  "name": "halal-wagyu-morning-burger",
+  "version": "1.0.0",
+  "description": "Halal Wagyu Morning Burger — multi-store breakfast/brunch LP. Domain: morning.halal-food-wagyu.com (TBD)",
+  "private": true,
+  "scripts": {
+    "build": "eleventy",
+    "dev": "eleventy --serve --port=8080",
+    "clean": "rm -rf _site"
+  },
+  "devDependencies": {
+    "@11ty/eleventy": "^2.0.1"
+  }
+}
