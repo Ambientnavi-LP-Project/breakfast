@@ -5,7 +5,7 @@ pagination:
   alias: store
 permalink: "/{{ store.region }}/{{ store.slug }}/index.html"
 eleventyComputed:
-  title: "{{ store.name_full_en }}"
+  title: "{{ store.seo_title }}"
 ---
 <!DOCTYPE html>
 <html lang="en">
@@ -20,8 +20,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <!-- TODO: 上のGTM-XXXXXXXを本番のGTMコンテナIDに差し替えてください -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="{{ store.name_full_en }} — Halal Wagyu Morning Burger. Muslim-Friendly breakfast &amp; brunch, made with Miyazaki Wagyu." />
-  <title>{{ store.name_full_en }}</title>
+  <meta name="description" content="{{ store.seo_description }}" />
+  <title>{{ store.seo_title }}</title>
+  <link rel="canonical" href="https://{{ stores.brand.domain }}/{{ store.region }}/{{ store.slug }}/" />
+
+  <!-- Open Graph / social sharing -->
+  <meta property="og:type" content="restaurant.restaurant" />
+  <meta property="og:title" content="{{ store.seo_title }}" />
+  <meta property="og:description" content="{{ store.seo_description }}" />
+  <meta property="og:url" content="https://{{ stores.brand.domain }}/{{ store.region }}/{{ store.slug }}/" />
+  <meta property="og:image" content="https://{{ stores.brand.domain }}/assets/scrambled-egg-burger.png" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:locale:alternate" content="fr_FR" />
+  <meta property="og:locale:alternate" content="zh_CN" />
+  <meta property="og:locale:alternate" content="ko_KR" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="{{ store.seo_title }}" />
+  <meta name="twitter:description" content="{{ store.seo_description }}" />
+  <meta name="twitter:image" content="https://{{ stores.brand.domain }}/assets/scrambled-egg-burger.png" />
+
+  <!-- Structured data: local business / restaurant -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Restaurant",
+    "name": "{{ store.name_full_en }}",
+    "url": "https://{{ stores.brand.domain }}/{{ store.region }}/{{ store.slug }}/",
+    "image": "https://{{ stores.brand.domain }}/assets/scrambled-egg-burger.png",
+    "telephone": "{{ store.tel_raw }}",
+    "servesCuisine": ["Halal", "Vegan", "Vegetarian", "Hamburger", "Brunch", "Breakfast"],
+    "priceRange": "$$",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "{{ store.address_en }}",
+      "addressLocality": "{{ store.city }}",
+      "postalCode": "{{ store.address_postal }}",
+      "addressCountry": "JP"
+    },
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday","Sunday"],
+      "opens": "07:00",
+      "closes": "11:30"
+    }
+  }
+  </script>
 
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -84,7 +127,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     @media (max-width: 640px) { .map-frame { aspect-ratio: 4 / 3; } }
 
     /* ── HERO ── */
-    .hero-wrap { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: flex-end; align-items: center; padding: 0 20px 52px; overflow: hidden; background: #2a2118; }
+    .hero-wrap { position: relative; min-height: 100svh; display: flex; flex-direction: column; justify-content: space-between; align-items: center; padding: 0 20px 52px; overflow: hidden; background: #2a2118; }
     .hero-photo-wrap { position: absolute; inset: 0; overflow: hidden; display: flex; }
     .hero-photo-half { position: relative; flex: 1; height: 100%; overflow: hidden; }
     .hero-photo-half img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -104,9 +147,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to bottom, rgba(42,33,24,.12) 0%, rgba(42,33,24,.18) 42%, rgba(42,33,24,.82) 74%, rgba(42,33,24,.97) 100%); pointer-events: none; }
 
     .hero-shopname {
-      position: absolute; top: 88px; left: 0; right: 0; margin: 0 auto;
-      text-align: center; z-index: 2; width: 92%; max-width: 620px;
-      padding: 0 8px;
+      position: relative; z-index: 2; width: 92%; max-width: 620px;
+      margin: 88px auto 0;
+      text-align: center; padding: 0 8px;
     }
     .hero-shopname p {
       font-family: 'Fraunces', serif;
@@ -516,7 +559,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <span class="info-icon" style="color:#6e8f63;">✦</span>
           <div>
             <p style="font-size:10px; color:rgba(110,143,99,.9); letter-spacing:.1em; margin-bottom:4px; font-weight:700;" data-i18n="info_halal_label">HALAL INFO</p>
-            <p style="font-size:13px; font-weight:400; margin-bottom:3px;" data-i18n="info_halal_line1">Muslim-Friendly · Prayer space available</p>
+            <p style="font-size:13px; font-weight:400; margin-bottom:3px;" data-i18n="info_halal_line1">Muslim-Friendly</p>
             <p style="font-size:11px; color:rgba(42,33,24,.5);" data-i18n="info_halal_line2">No pork · Muslim-friendly</p>
           </div>
         </div>
@@ -607,7 +650,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         info_address_coming_soon: "full address coming soon",
         info_hours_label: "HOURS",
         info_halal_label: "HALAL INFO",
-        info_halal_line1: "Muslim-Friendly · Prayer space available",
+        info_halal_line1: "Muslim-Friendly",
         info_halal_line2: "No pork · Muslim-friendly",
         footer_tagline: "MIYAZAKI WAGYU &nbsp;·&nbsp; MORNING &amp; BRUNCH",
         footer_reservation: "RESERVATION",
@@ -656,7 +699,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         info_address_coming_soon: "adresse complète bientôt disponible",
         info_hours_label: "HORAIRES",
         info_halal_label: "INFOS HALAL",
-        info_halal_line1: "Halal · Espace de prière disponible",
+        info_halal_line1: "Halal",
         info_halal_line2: "Sans porc · Adapté aux musulmans",
         footer_tagline: "WAGYU DE MIYAZAKI &nbsp;·&nbsp; MATIN &amp; BRUNCH",
         footer_reservation: "RÉSERVATION",
@@ -705,7 +748,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         info_address_coming_soon: "详细地址即将公布",
         info_hours_label: "营业时间",
         info_halal_label: "清真信息",
-        info_halal_line1: "清真认证 · 设有礼拜空间",
+        info_halal_line1: "清真认证",
         info_halal_line2: "不含猪肉 · 穆斯林友好",
         footer_tagline: "宫崎和牛 &nbsp;·&nbsp; 早晨与早午餐",
         footer_reservation: "预约",
@@ -754,7 +797,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         info_address_coming_soon: "상세 주소는 곧 안내드립니다",
         info_hours_label: "영업시간",
         info_halal_label: "할랄 안내",
-        info_halal_line1: "할랄 · 기도 공간 이용 가능",
+        info_halal_line1: "할랄",
         info_halal_line2: "돼지고기 미사용 · 무슬림 프렌들리",
         footer_tagline: "미야자키 와규 &nbsp;·&nbsp; 모닝 &amp; 브런치",
         footer_reservation: "예약",
