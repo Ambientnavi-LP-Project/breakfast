@@ -6,22 +6,19 @@
  * 地図キーは maps_embed / maps_link（他業態と統一）。
  * maps_embed は <iframe> の src= の中身（URL文字列）のみを入れること。
  *
- * has_interior_photos: true にすると /assets/{slug}/hero-1.jpg, hero-2.jpg を
- * ヒーローの背景に使う。false の間は共通のフォールバック画像を使う。
- * 東銀座・お初天神は撮影済みなので true。京都駅はまだ撮影前のため false。
- * → 写真が届いたら src/assets/{slug}/ に hero-1.jpg, hero-2.jpg を追加し、true に変更するだけ。
+ * ヒーロー写真は全店舗共通で、スクランブルエッグバーガー×ステーキバーガーの
+ * 2枚並びを src/store.njk 側で直接指定しています（店舗ごとの内観写真は使っていません）。
  *
  * ※ Googleレビュー欄・Tripadvisor実績欄は今回の業態では非表示にしています
  *   （store.njk 側で該当セクションを削除済み）。
  */
 module.exports = {
   brand: {
-    // TODO: 実際のドメインが決まったら差し替えてください（暫定案）
-    domain: "morning.halal-food-wagyu.com",
+    domain: "burger-brunch.halal-food-wagyu.com",
     // TODO: この業態専用のGA4測定IDに差し替えてください（暫定でXにしています）
     ga4_id: "G-XXXXXXXXXX",
-    brand_name: "Halal Wagyu Morning Burger",
-    brand_slug: "morning"
+    brand_name: "Wagyu Breakfast Burger",
+    brand_slug: "burger-brunch"
   },
   stores: [
     {
@@ -29,78 +26,72 @@ module.exports = {
       region: "tokyo",
       slug: "higashi-ginza",
       // ===== 店名 =====
-      name_full_en: "Halal Wagyu Morning Burger · Higashi-Ginza",
+      name_full_en: "Wagyu Breakfast Burger Halal Vegan Ginza Brunch Restaurant 銀座早餐餐厅",
       name_cn: "",
       hero_place: "Tokyo's Ginza",
-      // ===== 立地(steak業態の東銀座店と同住所を想定。違う場合は差し替えてください) =====
+      // ===== 立地 =====
       city: "Ginza, Tokyo",
       station_en: "Higashi-ginza Station",
-      address_en: "3-12-16 Ginza, Chuo-ku, Tokyo",
+      address_en: "3-12-15 Ginza, Chuo-ku, Tokyo",
       address_postal: "104-0061",
       // ===== 連絡先 =====
-      tel_display: "03-6278-7139",
-      tel_raw: "+81362787139",
+      tel_display: "090-4129-6646",
+      tel_raw: "+819041296646",
       // ===== 営業(モーニング業態なので朝〜昼の時間帯に変更) =====
       hours: "7:00 – 11:30",
       hours_note: "Morning & Brunch · L.O. 11:00",
-      // ===== 予約・地図 =====
-      tablecheck_url: "https://www.tablecheck.com/shops/halal-wagyu-ginza-5w-tokyo/reserve",
-      maps_link: "https://maps.app.goo.gl/4EfmHFrLB2qsBVn88",
-      maps_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d7956332.37488466!2d132.3809798!3d35.1867375!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188b8a1b1f7ca7%3A0x8d81bba28006abf!2zSmFwYW5lc2UgRm9vZCBXYWd5dSBCZWVmIChIYWxhbCkgUmFtZW4gSGFtYnVyZ2VyIEdpbnphIFJlc3RhdXJhbnQgNVctVG9reW8gKOS4nOS6rOWSjOeJm-aLiem6uik!5e1!3m2!1sja!2sjp!4v1780407684524!5m2!1sja!2sjp",
-      // ===== 撮影状況 =====
-      has_interior_photos: true
+      // ===== 予約・地図 ===== 地図・オンライン予約リンクなし → 予約ボタンは電話案内になる
+      tablecheck_url: "",
+      maps_link: "",
+      maps_embed: "",
     },
     {
       // ===== URL/識別 =====
       region: "osaka",
       slug: "ohatsu-tenjin",
       // ===== 店名 =====
-      name_full_en: "Halal Wagyu Morning Burger · Ohatsu-Tenjin",
+      name_full_en: "Wagyu Breakfast Burger Halal Vegan Osaka Brunch Restaurant 大阪早餐餐厅",
       name_cn: "",
       hero_place: "Osaka's Umeda",
-      // ===== 立地(steak業態のお初天神店と同住所を想定。違う場合は差し替えてください) =====
+      // ===== 立地 =====
       city: "Umeda, Osaka",
       station_en: "Higashi-Umeda Station",
-      address_en: "MK Sonezaki Bldg. 1F, 2-14-5 Sonezaki, Kita-ku, Osaka",
+      address_en: "2-14-7 Sonezaki, Kita-ku, Osaka",
       address_postal: "530-0057",
       // ===== 連絡先 =====
-      tel_display: "090-2411-0668",
-      tel_raw: "+819024110668",
+      tel_display: "080-2071-0159",
+      tel_raw: "+818020710159",
       // ===== 営業(モーニング業態なので朝〜昼の時間帯に変更) =====
       hours: "7:00 – 11:30",
       hours_note: "Morning & Brunch · L.O. 11:00",
-      // ===== 予約・地図 =====
-      tablecheck_url: "https://www.tablecheck.com/shops/halal-wagyu-ohatsutennjin/reserve",
-      maps_link: "https://maps.app.goo.gl/nGkUcbYJDwVXLnSJ8",
-      maps_embed: "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d244.25082538630375!2d135.501323!3d34.7009307!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6000e737d3d79fad%3A0x34aa836911c15bd3!2sWagyu%20Steak%20%26%20Hamburger%20(Halal%20Gluten%20Free)%20Osaka%20Station%20Restaurant!5e1!3m2!1sja!2sjp!4v1780407564711!5m2!1sja!2sjp",
-      // ===== 撮影状況 =====
-      has_interior_photos: true
+      // ===== 予約・地図 ===== 地図・オンライン予約リンクなし → 予約ボタンは電話案内になる
+      tablecheck_url: "",
+      maps_link: "",
+      maps_embed: "",
     },
     {
       // ===== URL/識別 =====
       region: "kyoto",
       slug: "kyoto-eki",
       // ===== 店名 =====
-      name_full_en: "Halal Wagyu Morning Burger · Kyoto Station",
+      name_full_en: "Wagyu Breakfast Burger Halal Vegan Kyoto Brunch Restaurant 京都早餐餐厅",
       name_cn: "",
       hero_place: "Kyoto Station",
-      // ===== 立地 ===== ※ TODO: 情報が届いたら差し替えてください(現在は仮情報)
-      city: "Kyoto Station, Kyoto",
+      // ===== 立地 =====
+      city: "Higashikujo, Kyoto",
       station_en: "Kyoto Station",
-      address_en: "",   // TODO: 住所を追加
-      address_postal: "",
+      address_en: "3-5 Higashikujo Kitakarasumacho, Minami-ku, Kyoto",
+      address_postal: "601-8017",
       // ===== 連絡先 =====
-      tel_display: "",  // TODO: 電話番号を追加
-      tel_raw: "",
+      tel_display: "080-2227-6466",
+      tel_raw: "+818022276466",
       // ===== 営業 =====
       hours: "7:00 – 11:30",
       hours_note: "Morning & Brunch · L.O. 11:00",
-      // ===== 予約・地図 ===== ※ TODO: 情報が届いたら差し替えてください
+      // ===== 予約・地図 ===== 地図・オンライン予約リンクなし → 予約ボタンは電話案内になる
       tablecheck_url: "",
       maps_link: "",
       maps_embed: "",
-      // ===== 撮影状況(まだ内観写真なし) =====
-      has_interior_photos: false
     }
   ]
 };
