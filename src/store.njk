@@ -15,9 +15,8 @@ eleventyComputed:
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+})(window,document,'script','dataLayer','GTM-5DGT9H6L');</script>
 <!-- End Google Tag Manager -->
-  <!-- TODO: 上のGTM-XXXXXXXを本番のGTMコンテナIDに差し替えてください -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="{{ store.seo_description }}" />
@@ -228,7 +227,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5DGT9H6L"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
@@ -291,16 +290,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="reveal d4" style="display:flex; flex-direction:column; gap:12px;">
         {% if store.maps_link %}
-        <a href="{{ store.maps_link }}" target="_blank" rel="noopener" class="btn-primary" data-ga-event="directions_click" data-ga-location="hero">
+        <a href="{{ store.maps_link }}" target="_blank" rel="noopener" class="btn-primary" data-ga-event="map_click">
           <span data-i18n="cta_get_directions">Get Directions</span>
         </a>
         {% endif %}
         {% if store.tablecheck_url %}
-        <a href="{{ store.tablecheck_url }}?utm_source=lp&utm_medium=referral" target="_blank" rel="noopener" class="btn-secondary" data-ga-event="reserve_click" data-ga-location="hero">
+        <a href="{{ store.tablecheck_url }}?utm_source=lp&utm_medium=referral" target="_blank" rel="noopener" class="btn-secondary" data-ga-event="reserve_click">
           <span data-i18n="cta_reserve_table">Reserve a Table</span>
         </a>
         {% elif store.tel_raw %}
-        <a href="tel:{{ store.tel_raw }}" class="btn-primary" data-ga-event="call_click" data-ga-location="hero">
+        <a href="tel:{{ store.tel_raw }}" class="btn-primary" data-ga-event="tel_click">
           <span data-i18n="cta_call_to_reserve">Call to Reserve</span> · {{ store.tel_display }}
         </a>
         {% else %}
@@ -515,7 +514,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <div class="map-caption">
           <p>{{ store.address_en }}</p>
           {% if store.maps_link %}
-          <a href="{{ store.maps_link }}" target="_blank" rel="noopener" data-ga-event="directions_click" data-ga-location="map">↗ <span data-i18n="map_open_in_maps">OPEN IN MAPS</span></a>
+          <a href="{{ store.maps_link }}" target="_blank" rel="noopener" data-ga-event="map_click">↗ <span data-i18n="map_open_in_maps">OPEN IN MAPS</span></a>
           {% endif %}
         </div>
       </div>
@@ -567,16 +566,16 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
       <div class="reveal" style="display:flex; flex-direction:column; gap:12px;">
         {% if store.maps_link %}
-        <a href="{{ store.maps_link }}" target="_blank" rel="noopener" class="btn-primary" data-ga-event="directions_click" data-ga-location="access">
+        <a href="{{ store.maps_link }}" target="_blank" rel="noopener" class="btn-primary" data-ga-event="map_click">
           <span data-i18n="cta_get_directions">Get Directions</span>
         </a>
         {% endif %}
         {% if store.tablecheck_url %}
-        <a href="{{ store.tablecheck_url }}?utm_source=lp&utm_medium=referral" target="_blank" rel="noopener" class="btn-secondary on-light" data-ga-event="reserve_click" data-ga-location="access">
+        <a href="{{ store.tablecheck_url }}?utm_source=lp&utm_medium=referral" target="_blank" rel="noopener" class="btn-secondary on-light" data-ga-event="reserve_click">
           <span data-i18n="cta_reserve_table">Reserve a Table</span>
         </a>
         {% elif store.tel_raw %}
-        <a href="tel:{{ store.tel_raw }}" class="btn-primary" data-ga-event="call_click" data-ga-location="access">
+        <a href="tel:{{ store.tel_raw }}" class="btn-primary" data-ga-event="tel_click">
           <span data-i18n="cta_call_to_reserve">Call to Reserve</span> · {{ store.tel_display }}
         </a>
         {% else %}
@@ -593,12 +592,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p style="font-size:10px; color:rgba(251,241,222,.35); letter-spacing:.24em; margin-bottom:22px;" data-i18n="footer_tagline">MIYAZAKI WAGYU &nbsp;·&nbsp; MORNING &amp; BRUNCH</p>
     <div style="display:flex; justify-content:center; gap:28px;">
       {% if store.tablecheck_url %}
-      <a href="{{ store.tablecheck_url }}?utm_source=lp&utm_medium=referral" target="_blank" rel="noopener" style="font-size:10px; color:rgba(251,241,222,.35); text-decoration:none; letter-spacing:.14em;" data-ga-event="reserve_click" data-ga-location="footer"><span data-i18n="footer_reservation">RESERVATION</span></a>
+      <a href="{{ store.tablecheck_url }}?utm_source=lp&utm_medium=referral" target="_blank" rel="noopener" style="font-size:10px; color:rgba(251,241,222,.35); text-decoration:none; letter-spacing:.14em;" data-ga-event="reserve_click"><span data-i18n="footer_reservation">RESERVATION</span></a>
       {% elif store.tel_raw %}
-      <a href="tel:{{ store.tel_raw }}" style="font-size:10px; color:rgba(251,241,222,.35); text-decoration:none; letter-spacing:.14em;" data-ga-event="call_click" data-ga-location="footer"><span data-i18n="footer_call">CALL</span> {{ store.tel_display }}</a>
+      <a href="tel:{{ store.tel_raw }}" style="font-size:10px; color:rgba(251,241,222,.35); text-decoration:none; letter-spacing:.14em;" data-ga-event="tel_click"><span data-i18n="footer_call">CALL</span> {{ store.tel_display }}</a>
       {% endif %}
       {% if store.maps_link %}
-      <a href="{{ store.maps_link }}" target="_blank" rel="noopener" style="font-size:10px; color:rgba(251,241,222,.35); text-decoration:none; letter-spacing:.14em;" data-ga-event="directions_click" data-ga-location="footer"><span data-i18n="footer_maps">MAPS</span></a>
+      <a href="{{ store.maps_link }}" target="_blank" rel="noopener" style="font-size:10px; color:rgba(251,241,222,.35); text-decoration:none; letter-spacing:.14em;" data-ga-event="map_click"><span data-i18n="footer_maps">MAPS</span></a>
       {% endif %}
     </div>
   </footer>
@@ -844,23 +843,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       document.querySelectorAll('.hero-wrap .reveal').forEach(el => el.classList.add('visible'));
     });
 
-    /* === GA4 custom event tracking === */
-    (function(){
-      if (typeof gtag !== 'function') return;
-      document.addEventListener('click', function(e){
-        var el = e.target.closest('[data-ga-event]');
-        if (!el) return;
-        var evtName = el.getAttribute('data-ga-event');
-        var location = el.getAttribute('data-ga-location') || '';
-        gtag('event', evtName, {
-          'event_category': 'engagement',
-          'event_label': location,
-          'store_name': '{{ store.slug }}',
-          'store_area': '{{ store.region }}',
-          'brand': '{{ stores.brand.brand_slug }}'
-        });
-      }, true);
-    })();
+    /* === クリック計測（data-ga-event → dataLayer → GTM → GA4）===
+       計測したい要素に data-ga-event="イベント名" を付けるだけ。
+       店舗・チャネル等のパラメータはコード側で組み立てず、GTM側でURLから解決する。 */
+    window.dataLayer = window.dataLayer || [];
+    document.addEventListener('click', function (e) {
+      var el = e.target.closest('[data-ga-event]');
+      if (!el) return;
+      window.dataLayer.push({ event: el.getAttribute('data-ga-event') });
+    }, true);
   </script>
 </body>
 </html>

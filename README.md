@@ -73,14 +73,44 @@ src/assets/ohatsu-tenjin/hero-2.jpg
 - 選択した言語は`localStorage`に保存され、次回訪問時も同じ言語で表示されます
 - 新しい翻訳キーを追加する場合は、`data-i18n="キー名"`をHTML要素に付け、`translations`オブジェクトの4言語すべてに同じキーで値を追加してください
 
-## GA4の計測内容
+## 計測イベント一覧
 
-すべてのイベントに `store_name`, `store_area`, `brand` を付与している。
+このLPで実際に実装しているイベント。
+計測は **GTM コンテナ `GTM-5DGT9H6L`** 1本に集約している。
 
-### カスタムイベント
-- `reserve_click`(Reserveボタン): hero, access, footer
-- `call_click`(電話予約ボタン・TableCheckがない店舗向け): hero, access, footer
-- `directions_click`(Get Directionsボタン): hero, access, footer
+| イベント名 | 発火する場所 | 実装 |
+|---|---|---|
+| `reserve_click` | ヒーロー／アクセス欄／フッターの「Reserve a Table」「RESERVATION」（`tablecheck_url` を設定した店舗でのみ表示） | `data-ga-event="reserve_click"` |
+| `tel_click` | ヒーロー／アクセス欄／フッターの電話予約ボタン（`tablecheck_url` が空の店舗で表示。**現在は全3店舗がこれ**） | `data-ga-event="tel_click"` |
+| `map_click` | ヒーロー／地図下「OPEN IN MAPS」／アクセス欄／フッターの Googleマップリンク（`maps_link` を設定した店舗でのみ表示） | `data-ga-event="map_click"` |
+| `scroll_depth` | ページのスクロール到達率 | GTM組み込みトリガー（コード実装なし） |
+
+### 仕組み
+
+計測方式は **1つだけ**。計測したい要素に `data-ga-event="イベント名"` を付けると、
+ページ末尾の委譲リスナー1本が `dataLayer` に push する。
+
+```js
+window.dataLayer.push({ event: el.getAttribute('data-ga-event') });
+```
+
+店舗名・エリアなどの**パラメータはコード側で組み立てない**。
+GTM 側で URL（ホスト名／パス）から解決する。
+そのため `stores.js` に店舗を追加しても、計測用の設定を書き足す必要はない。
+
+### 現状の注意点
+
+**3店舗とも `tablecheck_url` / `maps_link` / `maps_embed` が空**のため、
+実際に発火するのは `tel_click` だけ。予約URL・地図URLを `stores.js` に入れれば、
+テンプレート側は変更不要で `reserve_click` / `map_click` も計測されるようになる。
+
+### 実装していないもの
+
+- **地図の埋め込み（iframe）**は計測対象外。ブラウザの仕様上、iframe 内部のクリックは
+  親ページの JavaScript では検知できない。地図の反応は「OPEN IN MAPS」リンクで見る。
+- `outbound_click` は外部SNSリンク用だが、このLPには Instagram 等のリンクがない。
+- `reservation_form_submit` / `final_check_view` は自社予約フォームを使うLP用。このLPは対象外。
+- `course_select` はコース選択UIがあるLP用。このLPにはコース選択UIがない。
 
 ## UTM付きURL
 

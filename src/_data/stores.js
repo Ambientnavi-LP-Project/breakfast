@@ -15,8 +15,8 @@
 module.exports = {
   brand: {
     domain: "burger-brunch.halal-food-wagyu.com",
-    // TODO: この業態専用のGA4測定IDに差し替えてください（暫定でXにしています）
-    ga4_id: "G-XXXXXXXXXX",
+    // GA4への送信はGTMコンテナ(GTM-5DGT9H6L)側で行うため、
+    // ここに測定IDは持たない。
     brand_name: "Wagyu Breakfast Burger",
     brand_slug: "burger-brunch"
   },
@@ -41,6 +41,7 @@ module.exports = {
       hours: "7:00 – 11:30",
       hours_note: "Morning & Brunch · L.O. 11:00",
       // ===== 予約・地図 ===== 地図・オンライン予約リンクなし → 予約ボタンは電話案内になる
+      reserve_system: "tablecheck",  // "tablecheck" | "form"。URL未設定のうちは電話予約ボタンになる
       tablecheck_url: "",
       maps_link: "",
       maps_embed: "",
@@ -65,6 +66,7 @@ module.exports = {
       hours: "7:00 – 11:30",
       hours_note: "Morning & Brunch · L.O. 11:00",
       // ===== 予約・地図 ===== 地図・オンライン予約リンクなし → 予約ボタンは電話案内になる
+      reserve_system: "tablecheck",  // "tablecheck" | "form"。URL未設定のうちは電話予約ボタンになる
       tablecheck_url: "",
       maps_link: "",
       maps_embed: "",
@@ -89,6 +91,7 @@ module.exports = {
       hours: "7:00 – 11:30",
       hours_note: "Morning & Brunch · L.O. 11:00",
       // ===== 予約・地図 ===== 地図・オンライン予約リンクなし → 予約ボタンは電話案内になる
+      reserve_system: "tablecheck",  // "tablecheck" | "form"。URL未設定のうちは電話予約ボタンになる
       tablecheck_url: "",
       maps_link: "",
       maps_embed: "",
