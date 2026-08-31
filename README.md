@@ -123,3 +123,10 @@ https://burger-brunch.halal-food-wagyu.com/tokyo/higashi-ginza/?utm_source=googl
 ```
 https://burger-brunch.halal-food-wagyu.com/tokyo/higashi-ginza/?utm_source=google-ads-website&utm_medium=cpc&utm_campaign=store
 ```
+
+## 計測要件
+
+LPの作成・デザイン変更・テンプレート追加を行う際は、必ず以下を参照すること。
+CTAの書き方やTableCheckのURL指定を誤ると、広告のコンバージョン計測が停止する。
+
+https://github.com/Ambientnavi-LP-Project/omakase/blob/main/docs/LP%E4%BD%9C%E6%88%90%E3%83%97%E3%83%AD%E3%83%B3%E3%83%97%E3%83%88.md
