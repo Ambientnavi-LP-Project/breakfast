@@ -38,32 +38,7 @@ module.exports = {
       tel_display: "090-4129-6646",
       tel_raw: "+819041296646",
       // ===== 営業(モーニング業態なので朝〜昼の時間帯に変更) =====
-      hours: "7:00 – 11:30",
-      hours_note: "Morning & Brunch · L.O. 11:00",
-      // ===== 予約・地図 ===== 地図・オンライン予約リンクなし → 予約ボタンは電話案内になる
-      reserve_system: "tablecheck",  // "tablecheck" | "form"。URL未設定のうちは電話予約ボタンになる
-      tablecheck_url: "",
-      maps_link: "",
-      maps_embed: "",
-    },
-    {
-      // ===== URL/識別 =====
-      region: "osaka",
-      slug: "ohatsu-tenjin",
-      // ===== 店名 =====
-      name_full_en: "Wagyu Breakfast Burger Halal Vegan Osaka Brunch Restaurant 大阪早餐餐厅",
-      name_cn: "",
-      hero_place: "Osaka's Umeda",
-      // ===== 立地 =====
-      city: "Umeda, Osaka",
-      station_en: "Higashi-Umeda Station",
-      address_en: "2-14-7 Sonezaki, Kita-ku, Osaka",
-      address_postal: "530-0057",
-      // ===== 連絡先 =====
-      tel_display: "080-2071-0159",
-      tel_raw: "+818020710159",
-      // ===== 営業(モーニング業態なので朝〜昼の時間帯に変更) =====
-      hours: "7:00 – 11:30",
+      hours: "8:00 – 11:30",
       hours_note: "Morning & Brunch · L.O. 11:00",
       // ===== 予約・地図 ===== 地図・オンライン予約リンクなし → 予約ボタンは電話案内になる
       reserve_system: "tablecheck",  // "tablecheck" | "form"。URL未設定のうちは電話予約ボタンになる
@@ -88,7 +63,7 @@ module.exports = {
       tel_display: "080-2227-6466",
       tel_raw: "+818022276466",
       // ===== 営業 =====
-      hours: "7:00 – 11:30",
+      hours: "8:00 – 11:30",
       hours_note: "Morning & Brunch · L.O. 11:00",
       // ===== 予約・地図 ===== 地図・オンライン予約リンクなし → 予約ボタンは電話案内になる
       reserve_system: "tablecheck",  // "tablecheck" | "form"。URL未設定のうちは電話予約ボタンになる
